@@ -90,6 +90,7 @@ The framework is organized into a modular and intuitive structure, promoting mai
 │           ├───configs
 │           └───testsuites
 └───target
+    ├───classes
     ├───generated-sources
     │   └───annotations
     ├───generated-test-sources

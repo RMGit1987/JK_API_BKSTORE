@@ -34,12 +34,14 @@ jobs:
       # TestNG tests are typically considered integration tests in an API automation context.
       run: mvn -B clean install
 
-    - name: Upload Test Reports (ExtentReports)
-      # This step uploads the generated ExtentReports HTML files as an artifact.
-      # This allows you to download and view the reports directly from the GitHub Actions run.
+    - name: Upload Test Reports
+      # This step will always run, even if previous steps fail.
+      if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: ExtentReports # Name of the artifact
-        path: reports # Path to your ExtentReports folder (adjust if different)
-        # Retention-days defines how long to keep the artifact; adjust as needed
+        name: Test-Reports
+        # Paths are now relative to the repository root directly
+        path: |
+          target/surefire-reports/emailable-report.html # Surefire report here
+          reports/ # ExtentReports generated here
         retention-days: 7

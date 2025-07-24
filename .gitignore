@@ -1,0 +1,42 @@
+# Maven build output
+target/
+
+# Logs
+logs/
+*.log
+
+# Test output and reports
+test-output/
+surefire-reports/
+*.html
+
+# Screenshots (test artifacts)
+screenshots/
+test-output/screenshots/
+
+# IDE/editor folders
+.idea/
+.vscode/
+*.iml
+
+# Node.js dependencies (if any JS tooling is used)
+node_modules/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Java class files
+*.class
+
+# Backup and temp files
+*~
+*.swp
+*.tmp
+
+# Uncomment if you want to ignore test data files
+# src/test/resources/testdata/
+# *.xlsx
+# *.json 
+
+__pycache__/
