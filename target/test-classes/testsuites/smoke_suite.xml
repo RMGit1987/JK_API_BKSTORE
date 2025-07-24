@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BkStore API Smoke Test Suite" verbose="1">
+    <listeners>
+        <listener class-name="com.bkstore.fastapi.listeners.ExtentReporterNG"/>
+    </listeners>
+    <test name="API Core Functionality Tests">
+        <classes>
+            <class name="com.bkstore.fastapi.tests.common.HealthCheckTests"/>
+        </classes>
+    </test>
+</suite>

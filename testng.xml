@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="RestAssuredSuite">
+  <listeners>
+      <listener class-name="com.bkstore.fastapi.listeners.ExtentReporterNG"/>
+  </listeners>
+  <test name="APITests">
+    <classes>
+      <class name="com.bkstore.fastapi.tests.common.HealthCheckTests"/>
+      <class name="com.bkstore.fastapi.tests.UserTests" />
+      <class name="com.bkstore.fastapi.tests.BookTests" />
+    </classes>
+  </test>
+</suite>
