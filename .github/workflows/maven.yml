@@ -31,7 +31,7 @@ jobs:
         pwd # Print the current working directory for debugging
         ls -la # List files in the current directory for debugging
         # Navigate to the FastAPI application's directory
-        cd fastapi-backend-app
+        cd fastapi-backend-app/bookstore
         pwd # Print the current working directory again to confirm navigation
         ls -la # List files in the FastAPI app directory to confirm presence of requirements.txt
         pip install -r requirements.txt # Make sure this file exists in your FastAPI app folder
