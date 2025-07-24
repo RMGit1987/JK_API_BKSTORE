@@ -19,6 +19,30 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4 # Action to check out your repository code
 
+    # --- STEPS TO SET UP AND RUN FASTAPI APPLICATION ---
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.9' # IMPORTANT: Match your FastAPI app's Python version
+
+    - name: Install FastAPI App Dependencies
+      run: |
+        # Navigate to the FastAPI application's directory within the repo
+        cd fastapi-backend-app/bookstore/bookstore
+        pip install -r requirements.txt # Make sure this file exists in your FastAPI app folder
+      timeout-minutes: 5
+
+    - name: Start FastAPI Application in background
+      run: |
+        # Navigate to the FastAPI application's directory again
+        cd fastapi-backend-app/bookstore/bookstore
+        uvicorn main:app --reload
+        sleep 15
+      timeout-minutes: 2
+
+    # --- STEPS FOR JAVA MAVEN TESTS ---
+    
     - name: Set up JDK 17
       uses: actions/setup-java@v4 # Action to set up a Java environment
       with:
@@ -42,6 +66,6 @@ jobs:
         name: Test-Reports
         # Paths are now relative to the repository root directly
         path: |
-          target/surefire-reports/emailable-report.html # Surefire report here
+          target/surefire-reports/*.html # Surefire report here
           reports/ # ExtentReports generated here
         retention-days: 7
