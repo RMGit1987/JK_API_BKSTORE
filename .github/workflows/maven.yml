@@ -32,11 +32,7 @@ jobs:
       # - Install dependencies and compile code (mvn install)
       # - Run all TestNG tests (mvn install automatically runs tests if configured via surefire/failsafe plugins)
       # TestNG tests are typically considered integration tests in an API automation context.
-      
-      run: |
-        # Navigate to the root of your Java Maven project
-        cd api-automation-framework/
-        mvn -B clean install
+      run: mvn -B clean install
 
     - name: Upload Test Reports
       # This step will always run, even if previous steps fail.
