@@ -19,34 +19,6 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4 # Action to check out your repository code
 
-    # --- STEPS TO SET UP AND RUN FASTAPI APPLICATION ---
-
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.9' # IMPORTANT: Match your FastAPI app's Python version
-
-    - name: Install FastAPI App Dependencies
-      run: |
-        pwd # Print the current working directory for debugging
-        ls -la # List files in the current directory for debugging
-        # Navigate to the FastAPI application's directory
-        cd backend-app-setup/bookstore
-        pwd # Print the current working directory again to confirm navigation
-        ls -la # List files in the FastAPI app directory to confirm presence of requirements.txt
-        pip install -r requirements.txt # Make sure this file exists in your FastAPI app folder
-      timeout-minutes: 5
-
-    - name: Start FastAPI Application in background
-      run: |
-        # Navigate to the FastAPI application's directory again
-        cd fastapi-backend-app/bookstore/bookstore
-        uvicorn main:app --reload
-        sleep 15
-      timeout-minutes: 2
-
-    # --- STEPS FOR JAVA MAVEN TESTS ---
-    
     - name: Set up JDK 17
       uses: actions/setup-java@v4 # Action to set up a Java environment
       with:
