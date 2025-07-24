@@ -29,7 +29,7 @@ jobs:
     - name: Install FastAPI App Dependencies
       run: |
         # Navigate to the FastAPI application's directory
-        cd fastapi-backend-app\bookstore\bookstore
+        cd fastapi-backend-app/bookstore/bookstore
         pip install -r requirements.txt # Make sure this file exists in your FastAPI app folder
       timeout-minutes: 5
 
